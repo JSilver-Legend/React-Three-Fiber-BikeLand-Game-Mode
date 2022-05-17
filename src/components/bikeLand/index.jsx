@@ -7,8 +7,9 @@ import './style.css';
 const BikeLand = () => {
   return (
     <Suspense fallback={null}>
-      <Canvas>
-        <fog attach="fog" args={[0xffffff, -4, 30]} intensity={0.2} />
+      <Canvas className='canvas'>
+        <fog attach="fog" args={[0xffffff, -4, 70]} intensity={0.2} />
+        {/* <color attach="background" args={"black"} /> */}
         <Model />
         <OrbitControls autoRotate={false} />
       </Canvas>
