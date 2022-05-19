@@ -4,76 +4,191 @@ import { useGLTF } from '@react-three/drei';
 
 const Model = () => {
 
-  const { nodes, materials, animations } = useGLTF('assets/glb/city.glb');
+  const { nodes, materials, animations } = useGLTF('assets/glb/city_ground.glb');
   console.log('nodes-->', nodes);
 
   return (
     <group>
-      <group position={[0, -5, 0]} scale={[3, 3, 3]} dispose={null} >
+      <group position={[0, 0, 0]} scale={[1, 1, 1]} dispose={null} >
         <mesh
-          name="city"
-          geometry={nodes.city.geometry}
-        // material={materials.city}
+          name='arc_gate'
+          geometry={nodes.arc_gate.geometry}
+          material={materials.city_1}
         />
         <mesh
-          name="mountain_1"
+          name='building_1'
+          geometry={nodes.building_1.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name='building_2'
+          geometry={nodes.building_2.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name='building_3'
+          geometry={nodes.building_3.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name='building_4'
+          geometry={nodes.building_4.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name='building_5'
+          geometry={nodes.building_5.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name='building_6'
+          geometry={nodes.building_6.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name='object_1'
+          geometry={nodes.object_1.geometry}
+          material={materials.city_2}
+        />
+        <mesh
+          name='object_2'
+          geometry={nodes.object_2.geometry}
+          material={materials.city_2}
+        />
+        <mesh
+          name='object_3'
+          geometry={nodes.object_3.geometry}
+          material={materials.city_2}
+        />
+        <mesh
+          name='object_4'
+          geometry={nodes.object_4.geometry}
+          material={materials.city_2}
+        />
+        <mesh
+          name='object_5'
+          geometry={nodes.object_5.geometry}
+          material={materials.city_2}
+        />
+        <mesh
+          name='object_6'
+          geometry={nodes.object_6.geometry}
+          material={materials.city_2}
+        />
+        <mesh
+          name='mountain_1'
           geometry={nodes.mountain_1.geometry}
-          material={materials.city}
+          material={materials.city_2}
         />
         <mesh
-          name="mountain_2"
+          name='mountain_2'
           geometry={nodes.mountain_2.geometry}
-          material={materials.city}
+          material={materials.city_2}
         />
         <mesh
-          name="mountain_3"
+          name='mountain_3'
           geometry={nodes.mountain_3.geometry}
-          material={materials.city}
+          material={materials.city_2}
         />
         <mesh
-          name="mountain_4"
+          name='mountain_4'
           geometry={nodes.mountain_4.geometry}
-          material={materials.city}
+          material={materials.city_2}
         />
         <mesh
-          name="mountain_5"
+          name='mountain_5'
           geometry={nodes.mountain_5.geometry}
-          material={materials.city}
+          material={materials.city_2}
         />
         <mesh
-          name="mountain_6"
+          name='mountain_6'
           geometry={nodes.mountain_6.geometry}
-          material={materials.city}
+          material={materials.city_2}
         />
         <mesh
-          name="mountain_7"
-          geometry={nodes.mountain_7.geometry}
-          material={materials.city}
+          name="road_1"
+          geometry={nodes.road_1.geometry}
+          material={materials.city_1}
         />
         <mesh
-          name="mountain_8"
-          geometry={nodes.mountain_8.geometry}
-          material={materials.city}
+          name="road_2"
+          geometry={nodes.road_2.geometry}
+          material={materials.city_1}
         />
         <mesh
-          name="mountain_9"
-          geometry={nodes.mountain_9.geometry}
-          material={materials.city}
+          name="road_3"
+          geometry={nodes.road_3.geometry}
+          material={materials.city_1}
         />
         <mesh
-          name="mountain_10"
-          geometry={nodes.mountain_10.geometry}
-          material={materials.city}
+          name="road_4"
+          geometry={nodes.road_4.geometry}
+          material={materials.city_1}
         />
         <mesh
-          name="mountain_11"
-          geometry={nodes.mountain_11.geometry}
-          material={materials.city}
+          name="road_5"
+          geometry={nodes.road_5.geometry}
+          material={materials.city_1}
         />
         <mesh
-          name="mountain_12"
-          geometry={nodes.mountain_12.geometry}
-          material={materials.city}
+          name="road_6"
+          geometry={nodes.road_6.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name="road_7"
+          geometry={nodes.road_7.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name="road_8"
+          geometry={nodes.road_8.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name="road_9"
+          geometry={nodes.road_9.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name="road_10"
+          geometry={nodes.road_10.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name="road_11"
+          geometry={nodes.road_11.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name="road_12"
+          geometry={nodes.road_12.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name="road_13"
+          geometry={nodes.road_13.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name="road_14"
+          geometry={nodes.road_14.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name="road_15"
+          geometry={nodes.road_15.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name="road_16"
+          geometry={nodes.road_16.geometry}
+          material={materials.city_1}
+        />
+        <mesh
+          name="road_17"
+          geometry={nodes.road_17.geometry}
+          material={materials.city_1}
         />
       </group>
       <group>
