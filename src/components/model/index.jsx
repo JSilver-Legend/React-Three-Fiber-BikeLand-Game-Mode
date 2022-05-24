@@ -5,7 +5,6 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 const Model = () => {
 
   const { nodes, materials, animations } = useGLTF('assets/glb/city_ground.glb');
-  console.log('nodes-->', nodes);
 
   const group = useRef();
   const { actions } = useAnimations(animations, group);

@@ -70,8 +70,12 @@ const BikeLand = () => {
   const [showButton, setShowButton] = useState(true);
   const [viewMode, setViewMode] = useState('zoomOut');
   const [modalPosition, setModalPosition] = useState([0, 0, 0]);
+  const [selectHotspots, setSelectHotspots] = useState('');
 
-  const cameraMove = (value) => {
+  const cameraMove = (value, str) => {
+
+    setSelectHotspots(str);
+
     gsap.to(camera.current, {
       duration: 2,
       onStart: () => {
@@ -105,6 +109,7 @@ const BikeLand = () => {
       gsap.to(camera.current, {
         duration: 2,
         onStart: () => {
+          setSelectHotspots('');
           setShowModal(false);
         },
         ease: "back.out(0)",
@@ -146,28 +151,28 @@ const BikeLand = () => {
             <Html
               position={[-0.8, 0.6, 1.5]}
             >
-              <div className="button" onClick={() => cameraMove(0)}>
+              <div className="button" onClick={() => cameraMove(0, 'shop')}>
                 <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
               </div>
             </Html>
             <Html
               position={[-2.2, 0.7, 0.2]}
             >
-              <div className="button" onClick={() => cameraMove(1)}>
+              <div className="button" onClick={() => cameraMove(1, 'gateway')}>
                 <img src="assets/img/gateway.svg" alt="gateway" width={60} height={60} />
               </div>
             </Html>
             <Html
               position={[1, 0.5, -0.2]}
             >
-              <div className="button" onClick={() => cameraMove(2)}>
+              <div className="button" onClick={() => cameraMove(2, 'bar')}>
                 <img src="assets/img/bar.svg" alt="bar" width={60} height={60} />
               </div>
             </Html>
             <Html
               position={[2, 0.6, 2.5]}
             >
-              <div className="button" onClick={() => cameraMove(3)}>
+              <div className="button" onClick={() => cameraMove(3, 'hill')}>
                 <img src="assets/img/hill.svg" alt="hill" width={60} height={60} />
               </div>
             </Html>
@@ -191,10 +196,26 @@ const BikeLand = () => {
                 Con il tuo AVATAR personalizzato potrai camminare nelle strade del Villaggio, soffermarti davanti una vetrina ed entrare nel negozio; potrai incontrare amici e conoscere nuove persone che condividono la tua stessa passione e con loro potrai scambiare esperienze e parerei in virtual reality;
               </div>
               <div className='hotspots'>
-                <img src="assets/img/gateway.svg" alt="hill" width={70} height={70} />
-                <img src="assets/img/bar.svg" alt="hill" width={70} height={70} />
-                <img src="assets/img/shop.svg" alt="hill" width={70} height={70} />
-                <img src="assets/img/hill.svg" alt="hill" width={70} height={70} />
+                {
+                  selectHotspots === 'gateway' ?
+                    <img src="assets/img/gateway.svg" alt="hill" width={90} height={90} />
+                    : <img src="assets/img/gateway.svg" alt="hill" width={70} height={70} />
+                }
+                {
+                  selectHotspots === 'bar' ?
+                    <img src="assets/img/bar.svg" alt="hill" width={90} height={90} />
+                    : <img src="assets/img/bar.svg" alt="hill" width={70} height={70} />
+                }
+                {
+                  selectHotspots === 'shop' ?
+                    <img src="assets/img/shop.svg" alt="hill" width={90} height={90} />
+                    : <img src="assets/img/shop.svg" alt="hill" width={70} height={70} />
+                }
+                {
+                  selectHotspots === 'hill' ?
+                    <img src="assets/img/hill.svg" alt="hill" width={90} height={90} />
+                    : <img src="assets/img/hill.svg" alt="hill" width={70} height={70} />
+                }
               </div>
             </div>
           </Html>
