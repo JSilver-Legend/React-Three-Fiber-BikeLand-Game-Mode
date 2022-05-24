@@ -20,19 +20,19 @@
 }
 
 .content {
-  width: 344px;
-  height: 480px;
+  width: 380px;
+  height: 580px;
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
   color: #474747;
-  padding: 19px;
+  padding: 30px;
 }
 
 .sub-title {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  margin-top: 20px;
-  font-size: 12px;
+  margin-top: 40px;
+  font-size: 15px;
   color: black;
   user-select: none;
 }
@@ -43,15 +43,15 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-top: 20px;
-  font-size: 32px;
+  font-size: 35px;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
   user-select: none;
 }
 
 .description {
-  margin-top: 22px;
-  margin-bottom: 22px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   line-height: 20px;
   text-align: justify;
   font-family: 'Poppins', sans-serif;
@@ -63,5 +63,5 @@
 .hotspots {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 }
