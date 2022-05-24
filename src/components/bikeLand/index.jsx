@@ -5,6 +5,21 @@ import Model from '../model';
 import './style.css';
 import gsap from 'gsap';
 
+const contents = [
+  { //shop
+    "content": "Troverai dei negozi virtuali da poter visitare: negozi di ciclismo, la parafarmacia, il negozio di Alimentari, dove poter acquistare tutto ciò di cui hai bisogno. Scegli comodamente dal divano di casa tua i prodotti che più ti interessano, senza stressarti nel traffico e con lunghe file alla cassa.",
+  },
+  { //gateway
+    "content": "BIKELAND è un Villaggio Virtuale in cui ogni residente troverà quanto occorre per vivere da ciclista al meglio della condizione fisica, tecnica e sociale partecipando alla vita della COMMUNITY. Con il tuo AVATAR personalizzato potrai camminare nelle strade del Villaggio, soffermarti davanti una vetrina ed entrare nel negozio; potrai incontrare amici e conoscere nuove persone che condividono la tua stessa passione e con loro potrai scambiare esperienze e parerei in virtual reality",
+  },
+  { //bar
+    "content": "Assisti ad eventi sportivi commentando insieme agli altri le Dirette con la live chat… come al BAR con gli amici. Potrai conoscere nuove persone con la tua stessa passione e con cui scambiare opinioni e concetti.",
+  },
+  { //hill
+    "content": "Visita il punto più alto della città, dove poter osservare una panoramica di Bikeland e poter scattare una foto ricordo."
+  }
+]
+
 const positions = [
   { // shop
     "target": {
@@ -69,18 +84,19 @@ const BikeLand = () => {
   const [showModal, setShowModal] = useState(false);
   const [showButton, setShowButton] = useState(true);
   const [viewMode, setViewMode] = useState('zoomOut');
+  const [content, setContent] = useState('');
   const [modalPosition, setModalPosition] = useState([0, 0, 0]);
   const [selectHotspots, setSelectHotspots] = useState('');
 
   const cameraMove = (value, str) => {
 
-    setSelectHotspots(str);
-
     gsap.to(camera.current, {
       duration: 2,
       onStart: () => {
+        setSelectHotspots(str);
         camera.current.enableRotate = false;
         setShowButton(false);
+        setContent(contents[value].content);
         setModalPosition([positions[value].modal.x, positions[value].modal.y, positions[value].modal.z]);
       },
       ease: "back.out(0)",
@@ -192,29 +208,40 @@ const BikeLand = () => {
                 Benvenuto a BIKELAND
               </div>
               <div className="description">
-                BIKELAND è un Villaggio Virtuale in cui ogni residente troverà quanto occorre per vivere da ciclista al meglio della condizione fisica, tecnica e sociale partecipando alla vita della COMMUNITY.
-                Con il tuo AVATAR personalizzato potrai camminare nelle strade del Villaggio, soffermarti davanti una vetrina ed entrare nel negozio; potrai incontrare amici e conoscere nuove persone che condividono la tua stessa passione e con loro potrai scambiare esperienze e parerei in virtual reality;
+                {content}
               </div>
               <div className='hotspots'>
                 {
                   selectHotspots === 'gateway' ?
                     <img src="assets/img/gateway.svg" alt="hill" width={90} height={90} />
-                    : <img src="assets/img/gateway.svg" alt="hill" width={70} height={70} />
+                    :
+                    <div className="button" onClick={() => cameraMove(1, 'gateway')}>
+                      <img src="assets/img/gateway.svg" alt="hill" width={70} height={70} />
+                    </div>
                 }
                 {
                   selectHotspots === 'bar' ?
                     <img src="assets/img/bar.svg" alt="hill" width={90} height={90} />
-                    : <img src="assets/img/bar.svg" alt="hill" width={70} height={70} />
+                    :
+                    <div className="button" onClick={() => cameraMove(2, 'bar')}>
+                      <img src="assets/img/bar.svg" alt="hill" width={70} height={70} />
+                    </div>
                 }
                 {
                   selectHotspots === 'shop' ?
                     <img src="assets/img/shop.svg" alt="hill" width={90} height={90} />
-                    : <img src="assets/img/shop.svg" alt="hill" width={70} height={70} />
+                    :
+                    <div className="button" onClick={() => cameraMove(0, 'shop')}>
+                      <img src="assets/img/shop.svg" alt="hill" width={70} height={70} />
+                    </div>
                 }
                 {
                   selectHotspots === 'hill' ?
                     <img src="assets/img/hill.svg" alt="hill" width={90} height={90} />
-                    : <img src="assets/img/hill.svg" alt="hill" width={70} height={70} />
+                    :
+                    <div className="button" onClick={() => cameraMove(3, 'hill')}>
+                      <img src="assets/img/hill.svg" alt="hill" width={70} height={70} />
+                    </div>
                 }
               </div>
             </div>
