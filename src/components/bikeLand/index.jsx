@@ -158,7 +158,9 @@ const BikeLand = () => {
         className='canvas'
         camera={{ position: [-5, 3, 4], fov: 45 }}
         shadows
-        onClick={() => setDefaultCamera()}
+        onClick={(e) => {
+          if (e.target.tagName === 'CANVAS') setDefaultCamera();
+        }}
       >
         <fog attach="fog" args={[0xffffff, 6, 20]} intensity={1} />
         {
