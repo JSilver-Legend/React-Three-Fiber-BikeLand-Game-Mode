@@ -26,6 +26,10 @@
   background-color: rgb(255, 255, 255);
   color: #474747;
   padding: 30px;
+  border-width: 1px 3px 3px 1px;
+  border-style: solid;
+  border-color: rgba(216, 216, 216, 0.35);
+  border-radius: 20px;
 }
 
 .sub-title {

@@ -15,32 +15,35 @@ const positions = [
     "modal": {
       "x": -0.3,
       "y": 0.6,
-      "z": 1
-    }
+      "z": 1.3
+    },
+    "angle": -3 * Math.PI / 8
   },
   { // gateway
     "target": {
-      "x": -2.2,
+      "x": -2.8,
       "y": 0.7,
-      "z": 0.2
+      "z": 0
     },
     "modal": {
-      "x": -2.2,
-      "y": 0.7,
-      "z": 0.2
-    }
+      "x": -3,
+      "y": 1.2,
+      "z": -0.5
+    },
+    "angle": -3 * Math.PI / 8
   },
   { // bar
     "target": {
       "x": 1,
-      "y": 0.5,
+      "y": 0.4,
       "z": -0.2
     },
     "modal": {
       "x": 1,
       "y": 0.9,
       "z": 0
-    }
+    },
+    "angle": -3 * Math.PI / 8
   },
   { // hill
     "target": {
@@ -51,8 +54,9 @@ const positions = [
     "modal": {
       "x": 2,
       "y": 0.8,
-      "z": 2.8
-    }
+      "z": 2
+    },
+    "angle": Math.PI / 8
   }
 ];
 
@@ -60,6 +64,7 @@ const BikeLand = () => {
 
   const camera = useRef();
   const modal = useRef();
+  const canvas = useRef();
 
   const [showModal, setShowModal] = useState(false);
   const [showButton, setShowButton] = useState(true);
@@ -77,8 +82,8 @@ const BikeLand = () => {
       ease: "back.out(0)",
       maxDistance: 1.8,
       minDistance: 1.8,
-      minPolarAngle: 3 * Math.PI / 8,
-      maxPolarAngle: 3 * Math.PI / 8,
+      minAzimuthAngle: positions[value].angle,
+      maxAzimuthAngle: positions[value].angle,
       onComplete: () => {
         setShowModal(true);
         setViewMode(true);
@@ -107,6 +112,8 @@ const BikeLand = () => {
         minDistance: 5,
         minPolarAngle: 2 * Math.PI / 8,
         maxPolarAngle: 2.3 * Math.PI / 8,
+        minAzimuthAngle: -2 * Math.PI / 8,
+        maxAzimuthAngle: 2 * Math.PI / 8,
         onComplete: () => {
           setViewMode('zoomOut');
           camera.current.enableRotate = true;
@@ -126,8 +133,9 @@ const BikeLand = () => {
   return (
     <Suspense fallback={null}>
       <Canvas
+        ref={canvas}
         className='canvas'
-        camera={{ position: [-2.5, 3, 4], fov: 45 }}
+        camera={{ position: [-5, 3, 4], fov: 45 }}
         shadows
         onClick={() => setDefaultCamera()}
       >
@@ -157,7 +165,7 @@ const BikeLand = () => {
               </div>
             </Html>
             <Html
-              position={[2, 0.8, 2.8]}
+              position={[2, 0.6, 2.5]}
             >
               <div className="button" onClick={() => cameraMove(3)}>
                 <img src="assets/img/hill.svg" alt="hill" width={60} height={60} />
@@ -193,7 +201,7 @@ const BikeLand = () => {
         }
         <Model />
         <ambientLight intensity={0.8} />
-        <OrbitControls ref={camera} rotateSpeed={0.4} minDistance={5} maxDistance={5} minPolarAngle={2 * Math.PI / 8} maxPolarAngle={2.3 * Math.PI / 8} />
+        <OrbitControls ref={camera} rotateSpeed={0.4} minDistance={5} minAzimuthAngle={-2 * Math.PI / 8} maxAzimuthAngle={2 * Math.PI / 8} maxDistance={5} minPolarAngle={2 * Math.PI / 8} maxPolarAngle={2.3 * Math.PI / 8} />
       </Canvas>
     </Suspense>
   )
