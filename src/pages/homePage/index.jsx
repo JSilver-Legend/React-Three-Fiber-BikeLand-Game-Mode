@@ -75,7 +75,7 @@ const HomePage = () => {
         <Plane rotation={[-Math.PI / 2, 0, 0]} userData={{ id: 'floor' }} />
         <Bike ref={bike} position={[0, 1, 0]} rotation={[0, 0, 0]} angularVelocity={[0, 0.5, 0]} wheelRadius={0.7} />
 
-        <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(-5, 0.36, 27)} />
+        {/* <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(-5, 0.36, 27)} />
         <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(5, 0.36, 27)} />
 
         <ColliderBox args={new THREE.Vector3(4, 1, 10)} pos={new THREE.Vector3(28.5, 0.36, 47.5)} />
@@ -89,7 +89,7 @@ const HomePage = () => {
         <ColliderBox args={new THREE.Vector3(6, 1, 17)} pos={new THREE.Vector3(-14, 0.36, 54)} />
         <ColliderBox args={new THREE.Vector3(5, 1, 11.5)} pos={new THREE.Vector3(-18, 0.36, 77)} />
         <ColliderBox args={new THREE.Vector3(10, 1, 9.5)} pos={new THREE.Vector3(-17.5, 0.36, 101)} />
-        <ColliderBox args={new THREE.Vector3(11, 1, 4)} pos={new THREE.Vector3(-17, 0.36, 114)} />
+        <ColliderBox args={new THREE.Vector3(11, 1, 4)} pos={new THREE.Vector3(-17, 0.36, 114)} /> */}
         {/* <Market1 position={[10, 0.8, 10]} /> */}
         {/* <ColliderBox position={[0, 0, 5]} /> */}
         {/* <ColliderBox position={[0, 0, 10]} /> */}
@@ -104,7 +104,7 @@ const HomePage = () => {
       <group scale={[1, 1.5, 1]}>
         <Physics>
           {/* <Gateway position={[0, 0.36, 5]} scale={[2, 1.4, 2]} /> */}
-          <mesh castShadow receiveShadow geometry={nodes.logo.geometry} material={materials.city_3} rotation={[Math.PI / 2, 0, 0]} position={[0, 0.25, 5]} scale={[4, 1, 2.5]} />
+          <mesh castShadow receiveShadow geometry={nodes.logo.geometry} material={materials.city_3} position={[0, 0.25, 5]} scale={[4, 3, 2.5]} />
           <mesh castShadow receiveShadow geometry={nodes.gateway.geometry} material={materials.city_2} position={[0, 0.36, 5]} scale={[2, 1.4, 2]} />
           <mesh castShadow receiveShadow geometry={nodes.building_1.geometry} material={materials.city_2} position={[2.4, -0.32, 7.4]} />
           <mesh castShadow receiveShadow geometry={nodes.building_2.geometry} material={materials.city_2} position={[4.7, -0.130, 11]} />

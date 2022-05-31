@@ -14,11 +14,6 @@ const Bike = ({ radius = 0.83, width = 1.2, height = -0.04, front = 1.3, back = 
   const wheel4 = useRef();
   const controls = useControls();
 
-  useThree(({ scene }) => {
-    // camera.rotation.set(deg2rad(30), 0, 0);
-    console.log('use Three-?', scene);
-  });
-
   const wheelInfo = {
     radius,
     directionLocal: [0, -1, 0],
@@ -26,19 +21,19 @@ const Bike = ({ radius = 0.83, width = 1.2, height = -0.04, front = 1.3, back = 
     suspensionRestLength: 0.3,
     maxSuspensionForce: 1e4,
     maxSuspensionTravel: 0.3,
-    dampingRelaxation: 10,
+    dampingRelaxation: 4,
     dampingCompression: 4.4,
     axleLocal: [-1, 0, 0],
     chassisConnectionPointLocal: [1, 0, 1],
-    useCustomSlidingRotationalSpeed: true,
+    useCustomSlidingRotationalSpeed: false,
     customSlidingRotationalSpeed: -30,
     frictionSlip: 2
   };
 
   const wheelInfo1 = { ...wheelInfo, isFrontWheel: true, chassisConnectionPointLocal: [0, height, front] }
-  const wheelInfo2 = { ...wheelInfo, isFrontWheel: true, chassisConnectionPointLocal: [-width / 2, height, 0] }
+  const wheelInfo2 = { ...wheelInfo, isFrontWheel: true, chassisConnectionPointLocal: [-width / 2, height, -1] }
   const wheelInfo3 = { ...wheelInfo, isFrontWheel: false, chassisConnectionPointLocal: [0, height, back] }
-  const wheelInfo4 = { ...wheelInfo, isFrontWheel: false, chassisConnectionPointLocal: [width / 2, height, 0] }
+  const wheelInfo4 = { ...wheelInfo, isFrontWheel: false, chassisConnectionPointLocal: [width / 2, height, -1] }
 
   const [vehicle, api] = useRaycastVehicle(() => ({
     chassisBody: chassis,
@@ -60,8 +55,11 @@ const Bike = ({ radius = 0.83, width = 1.2, height = -0.04, front = 1.3, back = 
     // if (forward) state.camera.position.x = currentPositionX + 0.1;
     // if (forward) console.log('position-->', chassis.current.position);
     // if (forward) console.log(vehicle.children);
-    for (let e = 2; e < 4; e++) api.applyEngineForce(forward || backward ? force * (forward && !backward ? -1 : 1) : 0, 2)
-    for (let s = 0; s < 2; s++) api.setSteeringValue(left || right ? steer * (left && !right ? 1 : -1) : 0, s)
+
+    if (left) console.log('left pressed');
+
+    for (let e = 2; e < 4; e++) api.applyEngineForce(forward || backward ? force * (forward && !backward ? -1 : 1) : 0, 1)
+    for (let s = 0; s < 2; s++) api.setSteeringValue(left || right ? steer * (left && !right ? 1 : -1) : 0, 0)
     for (let b = 2; b < 4; b++) api.setBrake(brake ? maxBrake : 0, b)
     if (reset) {
       chassis.current.api.position.set(0, 2, 0)
@@ -74,10 +72,10 @@ const Bike = ({ radius = 0.83, width = 1.2, height = -0.04, front = 1.3, back = 
   return (
     <group name='bike' ref={vehicle} position={[0, -0.4, 0]} scale={[0.09, 0.09, 0.09]}>
       <Beetle ref={chassis} handleRef={wheel1} rotation={props.rotation} position={props.position} angularVelocity={props.angularVelocity} />
-      <Wheel ref={wheel1} radius={radius} leftSide />
-      <Wheel ref={wheel2} radius={radius} scale={0.3} isVislble={false} />
-      <Wheel ref={wheel3} radius={radius} leftSide />
-      <Wheel ref={wheel4} radius={radius} scale={0.3} isVislble={false} />
+      <Wheel ref={wheel1} radius={0.1} scale={1} />
+      <Wheel ref={wheel2} radius={0.1} scale={1} isVislble={false} />
+      <Wheel ref={wheel3} radius={0.1} scale={1} />
+      <Wheel ref={wheel4} radius={0.1} scale={1} isVislble={false} />
     </group>
   )
 }

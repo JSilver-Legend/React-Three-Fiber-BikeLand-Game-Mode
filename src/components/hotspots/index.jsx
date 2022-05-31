@@ -39,9 +39,9 @@ const positions = [
       "z": 0
     },
     "modal": {
-      "x": -3,
-      "y": 1.2,
-      "z": -0.5
+      "x": 0,
+      "y": 1,
+      "z": 5
     },
     "angle": -3 * Math.PI / 8
   },
@@ -52,9 +52,9 @@ const positions = [
       "z": -0.2
     },
     "modal": {
-      "x": 1,
-      "y": 0.9,
-      "z": 0
+      "x": -2.5,
+      "y": 0.4,
+      "z": 10.4
     },
     "angle": -3 * Math.PI / 8
   },
