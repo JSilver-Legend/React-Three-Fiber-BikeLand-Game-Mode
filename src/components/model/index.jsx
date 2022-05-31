@@ -11,7 +11,11 @@ const Model = () => {
 
   useEffect(() => {
     // actions['All Animations'].play();
-  }, [actions])
+  }, [actions]);
+
+  useEffect(() => {
+    console.log('nodes-->', nodes);
+  }, [nodes]);
 
 
   return (
@@ -249,127 +253,57 @@ const Model = () => {
           receiveShadow={true}
         />
         <mesh
-          name="road_14"
+          name="road_13"
           geometry={nodes.road_14.geometry}
           material={materials.city_1}
           castShadow={true}
           receiveShadow={true}
         />
         <mesh
-          name="road_15"
+          name="road_13"
           geometry={nodes.road_15.geometry}
           material={materials.city_1}
           castShadow={true}
           receiveShadow={true}
         />
         <mesh
-          name="road_16"
+          name="road_13"
           geometry={nodes.road_16.geometry}
           material={materials.city_1}
           castShadow={true}
           receiveShadow={true}
         />
         <mesh
-          name="road_17"
+          name="road_13"
           geometry={nodes.road_17.geometry}
           material={materials.city_1}
           castShadow={true}
           receiveShadow={true}
         />
         <mesh
-          name="road_18"
+          name="road_13"
           geometry={nodes.road_18.geometry}
           material={materials.city_1}
           castShadow={true}
           receiveShadow={true}
         />
         <mesh
-          name="road_19"
+          name="road_13"
           geometry={nodes.road_19.geometry}
           material={materials.city_1}
           castShadow={true}
           receiveShadow={true}
         />
         <mesh
-          name="road_20"
+          name="road_13"
           geometry={nodes.road_20.geometry}
           material={materials.city_1}
           castShadow={true}
           receiveShadow={true}
         />
         <mesh
-          name="road_21"
+          name="road_13"
           geometry={nodes.road_21.geometry}
-          material={materials.city_1}
-          castShadow={true}
-          receiveShadow={true}
-        />
-        <mesh
-          name="road_22"
-          geometry={nodes.road_22.geometry}
-          material={materials.city_1}
-          castShadow={true}
-          receiveShadow={true}
-        />
-        <mesh
-          name="road_23"
-          geometry={nodes.road_23.geometry}
-          material={materials.city_1}
-          castShadow={true}
-          receiveShadow={true}
-        />
-        <mesh
-          name="road_24"
-          geometry={nodes.road_24.geometry}
-          material={materials.city_1}
-          castShadow={true}
-          receiveShadow={true}
-        />
-        <mesh
-          name="road_25"
-          geometry={nodes.road_25.geometry}
-          material={materials.city_1}
-          castShadow={true}
-          receiveShadow={true}
-        />
-        <mesh
-          name="road_26"
-          geometry={nodes.road_26.geometry}
-          material={materials.city_1}
-          castShadow={true}
-          receiveShadow={true}
-        />
-        <mesh
-          name="road_27"
-          geometry={nodes.road_27.geometry}
-          material={materials.city_1}
-          castShadow={true}
-          receiveShadow={true}
-        />
-        <mesh
-          name="road_28"
-          geometry={nodes.road_28.geometry}
-          material={materials.city_1}
-          castShadow={true}
-          receiveShadow={true}
-        />
-        <mesh
-          name="road_29"
-          geometry={nodes.road_29.geometry}
-          material={materials.city_1}
-          castShadow={true}
-          receiveShadow={true}
-        />
-        <mesh
-          name="road_30"
-          geometry={nodes.road_30.geometry}
-          material={materials.city_1}
-          castShadow={true}
-          receiveShadow={true}
-        />
-        <mesh
-          name="road_31"
-          geometry={nodes.road_31.geometry}
           material={materials.city_1}
           castShadow={true}
           receiveShadow={true}
