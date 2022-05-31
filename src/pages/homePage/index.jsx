@@ -95,6 +95,7 @@ const HomePage = () => {
       <group scale={[1, 1.5, 1]}>
         <Physics>
           {/* <Gateway position={[0, 0.36, 5]} scale={[2, 1.4, 2]} /> */}
+          <mesh geometry={nodes.logo.geometry} material={materials.city_3} rotation={[Math.PI / 2, 0, 0]} position={[0, 0.25, 5]} scale={[4, 1, 2.5]} />
           <mesh geometry={nodes.gateway.geometry} material={materials.city_2} position={[0, 0.36, 5]} scale={[2, 1.4, 2]} />
           <mesh geometry={nodes.building_1.geometry} material={materials.city_2} position={[2.4, -0.32, 7.4]} />
           <mesh geometry={nodes.building_2.geometry} material={materials.city_2} position={[4.7, -0.130, 11]} />
@@ -130,7 +131,8 @@ const HomePage = () => {
       {/* <Suspense fallback={null}>
         <Environment preset="night" />
       </Suspense> */}
-      <OrbitControls target={[0, 0, 5]} minDistance={15} maxDistance={15} minAzimuthAngle={-2 * Math.PI / 8} maxAzimuthAngle={2 * Math.PI / 8} minPolarAngle={2 * Math.PI / 8} maxPolarAngle={2.3 * Math.PI / 8} />
+      <OrbitControls target={[0, 0, 0]} />
+      {/* <OrbitControls target={[0, 0, 5]} minDistance={15} maxDistance={15} minAzimuthAngle={-2 * Math.PI / 8} maxAzimuthAngle={2 * Math.PI / 8} minPolarAngle={2 * Math.PI / 8} maxPolarAngle={2.3 * Math.PI / 8} /> */}
     </Canvas>
   )
 }
