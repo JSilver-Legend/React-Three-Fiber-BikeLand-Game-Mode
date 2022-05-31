@@ -69,7 +69,7 @@ const HomePage = () => {
     >
       {/* <fog attach="fog" args={['#171720', 10, 50]} /> */}
       <color attach="background" args={['#171720']} />
-      <ambientLight intensity={1} />
+      <ambientLight intensity={0.05} />
       {/* <spotLight position={[10, 10, 10]} angle={0.5} intensity={1} castShadow penumbra={1} /> */}
       <Physics broadphase="SAP" contactEquationRelaxation={4} friction={1e-3} allowSleep>
         <Plane rotation={[-Math.PI / 2, 0, 0]} userData={{ id: 'floor' }} />
@@ -96,7 +96,7 @@ const HomePage = () => {
         {/* <ColliderBox geometry={nodes.building_1.geometry} /> */}
       </Physics>
       <group scale={[5, 9, 13]} position={[-1.5, -0.4, 16]} >
-        <mesh receiveShadow geometry={nodes.ground.geometry} material={materials.city_1} />
+        <mesh position={[-0.14, 0, 0.07]} receiveShadow geometry={nodes.ground.geometry} material={materials.city_1} />
       </group>
       <group>
         {/* <ColliderBox position={[0, 0, 5]} args={[1, 1, 1]} /> */}
@@ -104,22 +104,22 @@ const HomePage = () => {
       <group scale={[1, 1.5, 1]}>
         <Physics>
           {/* <Gateway position={[0, 0.36, 5]} scale={[2, 1.4, 2]} /> */}
-          <mesh castShadow geometry={nodes.logo.geometry} material={materials.city_3} rotation={[Math.PI / 2, 0, 0]} position={[0, 0.25, 5]} scale={[4, 1, 2.5]} />
-          <mesh castShadow geometry={nodes.gateway.geometry} material={materials.city_2} position={[0, 0.36, 5]} scale={[2, 1.4, 2]} />
-          <mesh castShadow geometry={nodes.building_1.geometry} material={materials.city_2} position={[2.4, -0.32, 7.4]} />
-          <mesh castShadow geometry={nodes.building_2.geometry} material={materials.city_2} position={[4.7, -0.130, 11]} />
-          <mesh castShadow geometry={nodes.building_3.geometry} material={materials.city_2} position={[4.9, -0.130, 8.9]} />
-          <mesh castShadow geometry={nodes.building_4.geometry} material={materials.city_2} position={[2, -0.06, 10.9]} />
-          <mesh castShadow geometry={nodes.building_5.geometry} material={materials.city_2} position={[1.85, -0.12, 9.9]} scale={[0.7, 0.9, 0.8]} />
-          <mesh castShadow geometry={nodes.building_6.geometry} material={materials.city_2} position={[2, -0.1, 14.3]} />
-          <mesh castShadow geometry={nodes.building_7.geometry} material={materials.city_2} position={[2.05, -0.1, 16]} />
-          <mesh castShadow geometry={nodes.building_8.geometry} material={materials.city_2} position={[2.05, -0.15, 19]} />
-          <mesh castShadow geometry={nodes.building_9.geometry} material={materials.city_2} position={[-2.5, 0.05, 9]} scale={[1.5, 1.6, 1.5]} />
-          <mesh castShadow geometry={nodes.building_10.geometry} material={materials.city_2} position={[-2.5, -0.06, 10.8]} />
-          <mesh castShadow geometry={nodes.building_11.geometry} material={materials.city_2} position={[-3.4, -0.14, 13.4]} />
-          <mesh castShadow geometry={nodes.building_12.geometry} material={materials.city_2} position={[-3.4, -0.1, 14.4]} />
-          <mesh castShadow geometry={nodes.building_13.geometry} material={materials.city_2} position={[-2.1, -0.35, 19.2]} scale={[1.5, 1.5, 1.5]} />
-          <mesh castShadow geometry={nodes.building_14.geometry} material={materials.city_2} position={[-3.1, -0.1, 20.3]} />
+          <mesh castShadow receiveShadow geometry={nodes.logo.geometry} material={materials.city_3} rotation={[Math.PI / 2, 0, 0]} position={[0, 0.25, 5]} scale={[4, 1, 2.5]} />
+          <mesh castShadow receiveShadow geometry={nodes.gateway.geometry} material={materials.city_2} position={[0, 0.36, 5]} scale={[2, 1.4, 2]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_1.geometry} material={materials.city_2} position={[2.4, -0.32, 7.4]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_2.geometry} material={materials.city_2} position={[4.7, -0.130, 11]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_3.geometry} material={materials.city_2} position={[4.9, -0.130, 8.9]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_4.geometry} material={materials.city_2} position={[2, -0.06, 10.9]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_5.geometry} material={materials.city_2} position={[1.85, -0.12, 9.9]} scale={[0.7, 0.9, 0.8]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_6.geometry} material={materials.city_2} position={[2, -0.1, 14.3]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_7.geometry} material={materials.city_2} position={[2.05, -0.1, 16]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_8.geometry} material={materials.city_2} position={[2.05, -0.15, 19]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_9.geometry} material={materials.city_2} position={[-2.5, 0.05, 9]} scale={[1.5, 1.6, 1.5]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_10.geometry} material={materials.city_2} position={[-2.5, -0.06, 10.8]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_11.geometry} material={materials.city_2} position={[-3.4, -0.14, 13.4]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_12.geometry} material={materials.city_2} position={[-3.4, -0.1, 14.4]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_13.geometry} material={materials.city_2} position={[-2.1, -0.35, 19.2]} scale={[1.5, 1.5, 1.5]} />
+          <mesh castShadow receiveShadow geometry={nodes.building_14.geometry} material={materials.city_2} position={[-3.1, -0.1, 20.3]} />
           {/* <mesh geometry={nodes.building_1_1.geometry} material={materials.city_3} position={[2.4, -0.5, 7.4]} scale={[2.7, 5, 3]} /> */}
         </Physics>
       </group>
@@ -140,9 +140,9 @@ const HomePage = () => {
       {/* <Suspense fallback={null}>
         <Environment preset="night" />
       </Suspense> */}
-      <directionalLight castShadow intensity={0.2} />
+      <directionalLight castShadow intensity={0.8} rotation={[0.1, 0.1, 0.1]} />
       {/* <OrbitControls target={[0, 0, 0]} /> */}
-      <OrbitControls target={[0, 0, 5]} minDistance={10} maxDistance={10} minAzimuthAngle={2 * Math.PI / 8} maxAzimuthAngle={2 * Math.PI / 8} minPolarAngle={2.3 * Math.PI / 8} maxPolarAngle={2.3 * Math.PI / 8} />
+      <OrbitControls target={[0, 0, 5]} minDistance={5} maxDistance={30} minAzimuthAngle={2 * Math.PI / 8} maxAzimuthAngle={2 * Math.PI / 8} minPolarAngle={2.3 * Math.PI / 8} maxPolarAngle={2.3 * Math.PI / 8} />
     </Canvas>
   )
 }
