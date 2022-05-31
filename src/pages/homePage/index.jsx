@@ -142,7 +142,7 @@ const HomePage = () => {
       </Suspense> */}
       <directionalLight castShadow intensity={0.2} />
       {/* <OrbitControls target={[0, 0, 0]} /> */}
-      <OrbitControls target={[0, 0, 5]} minDistance={15} maxDistance={15} minAzimuthAngle={2 * Math.PI / 8} maxAzimuthAngle={2 * Math.PI / 8} minPolarAngle={2.3 * Math.PI / 8} maxPolarAngle={2.3 * Math.PI / 8} />
+      <OrbitControls target={[0, 0, 5]} minDistance={5} maxDistance={5} minAzimuthAngle={2 * Math.PI / 8} maxAzimuthAngle={2 * Math.PI / 8} minPolarAngle={2.3 * Math.PI / 8} maxPolarAngle={2.3 * Math.PI / 8} />
     </Canvas>
   )
 }

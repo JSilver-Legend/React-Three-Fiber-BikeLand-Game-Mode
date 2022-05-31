@@ -72,7 +72,7 @@ const Bike = ({ radius = 0.83, width = 1.2, height = -0.04, front = 1.3, back = 
   });
 
   return (
-    <group name='bike' ref={vehicle} position={[0, -0.4, 0]} scale={[0.18, 0.18, 0.18]}>
+    <group name='bike' ref={vehicle} position={[0, -0.4, 0]} scale={[0.09, 0.09, 0.09]}>
       <Beetle ref={chassis} handleRef={wheel1} rotation={props.rotation} position={props.position} angularVelocity={props.angularVelocity} />
       <Wheel ref={wheel1} radius={radius} leftSide />
       <Wheel ref={wheel2} radius={radius} scale={0.3} isVislble={false} />
