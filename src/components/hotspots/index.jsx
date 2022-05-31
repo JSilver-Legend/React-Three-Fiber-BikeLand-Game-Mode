@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Html } from '@react-three/drei';
 import './style.css';
 
@@ -26,9 +26,9 @@ const positions = [
       "z": 1
     },
     "modal": {
-      "x": -0.3,
-      "y": 0.6,
-      "z": 1.3
+      "x": 2,
+      "y": 0.4,
+      "z": 10.9
     },
     "angle": -3 * Math.PI / 8
   },
@@ -73,99 +73,140 @@ const positions = [
   }
 ];
 
-const HotSpots = () => {
+const HotSpots = ({ state }) => {
 
-  const [modalIndex, setModalIndex] = useState('');
-  const [showModal, setShowModal] = useState(true);
+  const [content, setContent] = useState('');
+  const [modalPosition, setModalPosition] = useState([0, 0, 0]);
+  const [selectHotspots, setSelectHotspots] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
-  const ShowEachModal = () => {
-    switch (modalIndex) {
-      case 'shop_1':
-        console.log('here');
-        <Html
-          position={[2, 0.4, 10.9]}
-        >
-          <div className="button" onClick={() => {
-            setModalIndex('shop_1');
-            setShowModal(false);
-          }}>
-            <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
-          </div>
-        </Html>
-        break;
-
-      default:
-        break;
-    }
-  };
+  useEffect(() => {
+    setShowModal(false);
+  }, [state])
 
   return (
     <group>
       {
-        showModal &&
-        <>
+        !showModal ?
+          <>
+            <Html
+              position={[2, 0.4, 10.9]}
+            >
+              <div className="button" onClick={() => {
+                setContent(contents[0].content);
+                setModalPosition([positions[0].modal.x, positions[0].modal.y, positions[0].modal.z]);
+                setShowModal(true);
+              }} >
+                <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
+              </div>
+            </Html>
+            <Html
+              position={[2.05, 0.4, 16]}
+            >
+              <div className="button" onClick={() => {
+                setContent(contents[0].content);
+                setModalPosition([positions[0].modal.x, positions[0].modal.y, positions[0].modal.z]);
+                setShowModal(true);
+              }}>
+                <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
+              </div>
+            </Html>
+            <Html
+              position={[2.05, 0.4, 19]}
+            >
+              <div className="button" onClick={() => {
+                setContent(contents[0].content);
+                setModalPosition([positions[0].modal.x, positions[0].modal.y, positions[0].modal.z]);
+                setShowModal(true);
+              }}>
+                <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
+              </div>
+            </Html>
+            <Html
+              position={[-3.4, 0.4, 14]}
+            >
+              <div className="button" onClick={() => {
+                setContent(contents[0].content);
+                setModalPosition([positions[0].modal.x, positions[0].modal.y, positions[0].modal.z]);
+                setShowModal(true);
+              }}>
+                <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
+              </div>
+            </Html>
+            <Html
+              position={[0, 1, 5]}
+            >
+              <div className="button" onClick={() => {
+                setContent(contents[1].content);
+                setModalPosition([positions[1].modal.x, positions[1].modal.y, positions[1].modal.z]);
+                setShowModal(true);
+              }}>
+                <img src="assets/img/gateway.svg" alt="gateway" width={60} height={60} />
+              </div>
+            </Html>
+            <Html
+              position={[-2.5, 0.4, 10.4]}
+            >
+              <div className="button" onClick={() => {
+                setContent(contents[2].content);
+                setModalPosition([positions[2].modal.x, positions[2].modal.y, positions[2].modal.z]);
+                setShowModal(true);
+              }}>
+                <img src="assets/img/bar.svg" alt="bar" width={60} height={60} />
+              </div>
+            </Html>
+          </> :
           <Html
-            position={[2, 0.4, 10.9]}
+            position={modalPosition}
           >
-            <div className="button" onClick={() => {
-              setModalIndex('shop_1');
-              setShowModal(false);
-            }}>
-              <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
+            <div className="content" >
+              <div className="sub-title">
+                BikeLand Box
+              </div>
+              <div className="title">
+                Benvenuto a BIKELAND
+              </div>
+              <div className="description">
+                {content}
+              </div>
+              <div className='hotspots'>
+                {
+                  selectHotspots === 'gateway' ?
+                    <img src="assets/img/gateway.svg" alt="hill" width={90} height={90} />
+                    :
+                    <div className="button">
+                      <img src="assets/img/gateway.svg" alt="hill" width={70} height={70} />
+                    </div>
+                }
+                {
+                  selectHotspots === 'bar' ?
+                    <img src="assets/img/bar.svg" alt="hill" width={90} height={90} />
+                    :
+                    <div className="button">
+                      <img src="assets/img/bar.svg" alt="hill" width={70} height={70} />
+                    </div>
+                }
+                {
+                  selectHotspots === 'shop' ?
+                    <img src="assets/img/shop.svg" alt="hill" width={90} height={90} />
+                    :
+                    <div className="button">
+                      <img src="assets/img/shop.svg" alt="hill" width={70} height={70} />
+                    </div>
+                }
+                {
+                  selectHotspots === 'hill' ?
+                    <img src="assets/img/hill.svg" alt="hill" width={90} height={90} />
+                    :
+                    <div className="button">
+                      <img src="assets/img/hill.svg" alt="hill" width={70} height={70} />
+                    </div>
+                }
+              </div>
             </div>
           </Html>
-          <Html
-            position={[2.05, 0.4, 16]}
-          >
-            <div className="button" onClick={() => {
-              setModalIndex('shop_2');
-              setShowModal(false);
-            }}>
-              <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
-            </div>
-          </Html>
-          <Html
-            position={[2.05, 0.4, 19]}
-          >
-            <div className="button" onClick={() => {
-              setModalIndex('shop_3');
-              setShowModal(false);
-            }}>
-              <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
-            </div>
-          </Html>
-          <Html
-            position={[-3.4, 0.4, 14]}
-          >
-            <div className="button" onClick={() => {
-              setModalIndex('shop_4');
-            }}>
-              <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
-            </div>
-          </Html>
-          <Html
-            position={[0, 1, 5]}
-          >
-            <div className="button" onClick={() => {
-              setModalIndex('gateway');
-              setShowModal(false);
-            }}>
-              <img src="assets/img/gateway.svg" alt="gateway" width={60} height={60} />
-            </div>
-          </Html>
-          <Html
-            position={[-2.5, 0.4, 10.4]}
-          >
-            <div className="button" onClick={() => {
-              setModalIndex('bar');
-              setShowModal(false);
-            }}>
-              <img src="assets/img/bar.svg" alt="bar" width={60} height={60} />
-            </div>
-          </Html>
-        </>
       }
-      <ShowEachModal />
+
     </group>
   );
 

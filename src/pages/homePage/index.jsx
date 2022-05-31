@@ -1,4 +1,4 @@
-import React, { Suspense, useRef } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { Physics, useCylinder, usePlane, useBox } from '@react-three/cannon';
 import { OrbitControls, Environment, softShadows, Html } from '@react-three/drei';
@@ -18,6 +18,8 @@ softShadows();
 //   console.log('camera-->', state.camera);
 // });
 const HomePage = () => {
+
+  const [showModal, setShowModal] = useState(true);
 
   const CameraMove = ({ v = new THREE.Vector3() }) => {
     console.log('here');
@@ -57,7 +59,14 @@ const HomePage = () => {
 
   return (
     // <BikeLand />
-    <Canvas dpr={[1, 1.5]} shadows camera={{ position: [15, 15, 10], fov: 30 }}>
+    <Canvas
+      onClick={(e) => {
+        if (e.target.tagName === 'CANVAS') setShowModal(!showModal);
+      }}
+      dpr={[1, 1.5]}
+      shadows
+      camera={{ position: [15, 15, 10], fov: 30 }}
+    >
       {/* <fog attach="fog" args={['#171720', 10, 50]} /> */}
       <color attach="background" args={['#171720']} />
       <ambientLight intensity={1} />
@@ -114,7 +123,7 @@ const HomePage = () => {
           {/* <mesh geometry={nodes.building_1_1.geometry} material={materials.city_3} position={[2.4, -0.5, 7.4]} scale={[2.7, 5, 3]} /> */}
         </Physics>
       </group>
-      <HotSpots />
+      <HotSpots state={showModal} />
 
       {/* <Html
           position={[2, 0.6, 2.5]}
@@ -133,7 +142,7 @@ const HomePage = () => {
       </Suspense> */}
       <directionalLight castShadow intensity={0.2} />
       {/* <OrbitControls target={[0, 0, 0]} /> */}
-      <OrbitControls target={[0, 0, 5]} minDistance={15} maxDistance={15} minAzimuthAngle={-2 * Math.PI / 8} maxAzimuthAngle={2 * Math.PI / 8} minPolarAngle={2 * Math.PI / 8} maxPolarAngle={2.3 * Math.PI / 8} />
+      <OrbitControls target={[0, 0, 5]} minDistance={15} maxDistance={15} minAzimuthAngle={2 * Math.PI / 8} maxAzimuthAngle={2 * Math.PI / 8} minPolarAngle={2.3 * Math.PI / 8} maxPolarAngle={2.3 * Math.PI / 8} />
     </Canvas>
   )
 }
