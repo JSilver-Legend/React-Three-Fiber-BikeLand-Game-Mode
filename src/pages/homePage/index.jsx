@@ -123,33 +123,37 @@ const HomePage = () => {
       <group scale={[1, 1.5, 1]}>
         {/* <Physics> */}
         {/* <Gateway position={[0, 0.36, 5]} scale={[2, 1.4, 2]} /> */}
+        <mesh castShadow geometry={nodes.road.geometry} material={materials.city_4} rotation={[0, 0, 0]} position={[-17, -0.33, 15.930]} scale={[10, 3, 5.1]} />
         <mesh castShadow geometry={nodes.mountain_1.geometry} material={materials.city_2} position={[-15, 0.3, 7]} scale={[3, 3, 3]} />
+        <mesh castShadow geometry={nodes.mountain_1.geometry} material={materials.city_2} position={[-9, 0.12, 19]} scale={[2, 2, 2]} />
         <mesh castShadow geometry={nodes.mountain_2.geometry} material={materials.city_2} position={[-15, 0.9, 12]} scale={[3, 3, 3]} />
         <mesh castShadow geometry={nodes.mountain_2.geometry} material={materials.city_2} position={[-19, 0.9, 12]} scale={[3, 3, 3]} />
         <mesh castShadow geometry={nodes.mountain_3.geometry} material={materials.city_2} position={[-15, 0.9, 19.5]} scale={[3, 3, 3]} />
         <mesh castShadow geometry={nodes.mountain_3.geometry} material={materials.city_2} position={[-18, 0.9, 19.5]} scale={[3, 3, 3]} />
         <mesh castShadow geometry={nodes.logo.geometry} material={materials.city_3} position={[0, 0.25, 5]} scale={[4, 3, 2.5]} />
         <mesh castShadow geometry={nodes.gateway.geometry} material={materials.city_2} position={[0, 0.36, 5]} scale={[2, 1.4, 2]} />
-        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[-3.2, 0.1, 12]} scale={[3, 2, 3]} />
-        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[-2.2, 0.3, 17.2]} scale={[3, 3, 3]} />
-        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[4.5, 0.3, 16.9]} scale={[3, 3, 3]} />
+        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[-3.2, 0.1, 12.3]} scale={[3, 2, 3]} />
+        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[-2.4, 0.3, 17.2]} scale={[2.8, 3, 2.8]} />
+        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[3.6, 0.3, 11.2]} scale={[2, 3, 2]} />
+        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[4.7, 0.3, 16.9]} scale={[3, 3, 3]} />
         <mesh castShadow geometry={nodes.tree_2.geometry} material={materials.city_2} rotation={[0, Math.PI / 2, 0]} position={[2.4, 0.3, 17.6]} scale={[3, 3, 3]} />
         <mesh castShadow geometry={nodes.tree_3.geometry} material={materials.city_2} rotation={[0, Math.PI / 2, 0]} position={[7, 0.3, 14.5]} scale={[3, 3, 3]} />
         <mesh castShadow geometry={nodes.tree_3.geometry} material={materials.city_2} rotation={[0, -Math.PI / 2, 0]} position={[7, 0.3, 11.2]} scale={[3, 3, 3]} />
         <mesh castShadow geometry={nodes.tree_3.geometry} material={materials.city_2} rotation={[0, -Math.PI / 2, 0]} position={[-12.5, 0.3, 14.8]} scale={[3, 3, 3]} />
-        <mesh castShadow geometry={nodes.building_1.geometry} material={materials.city_2} position={[2.4, -0.32, 7.4]} scale={[1.2, 1.2, 1.2]} />
+        <mesh castShadow geometry={nodes.tree_3.geometry} material={materials.city_2} rotation={[0, 0, 0]} position={[-10, 0.5, 12]} scale={[6, 4, 5]} />
+        <mesh castShadow geometry={nodes.building_1.geometry} material={materials.city_2} position={[2.5, -0.33, 7.4]} scale={[1.2, 1.2, 1.2]} />
         <mesh castShadow geometry={nodes.building_2.geometry} material={materials.city_2} position={[4.7, -0.130, 11]} scale={[1.2, 1.2, 1.2]} />
-        <mesh castShadow geometry={nodes.building_3.geometry} material={materials.city_2} position={[4.9, -0.130, 8.9]} scale={[1.2, 1.2, 1.2]} />
+        <mesh castShadow geometry={nodes.building_3.geometry} material={materials.city_2} position={[4.8, -0.130, 8.9]} scale={[1.2, 1.2, 1.2]} />
         <mesh castShadow geometry={nodes.building_4.geometry} material={materials.city_2} position={[2, -0.06, 10.9]} scale={[1.2, 1.2, 1.2]} />
         <mesh castShadow geometry={nodes.building_5.geometry} material={materials.city_2} position={[1.85, -0.12, 9.9]} scale={[1, 1, 1]} />
         <mesh castShadow geometry={nodes.building_6.geometry} material={materials.city_2} position={[2, -0.1, 14.3]} scale={[1.2, 1.2, 1.2]} />
         <mesh castShadow geometry={nodes.building_7.geometry} material={materials.city_2} position={[2.05, -0.1, 16]} scale={[1.2, 1.2, 1.2]} />
-        <mesh castShadow geometry={nodes.building_8.geometry} material={materials.city_2} position={[2.05, -0.15, 19]} scale={[1.2, 1.2, 1.2]} />
-        <mesh castShadow geometry={nodes.building_9.geometry} material={materials.city_2} position={[-2.5, 0.05, 9]} scale={[1.5, 1.6, 1.5]} />
+        <mesh castShadow geometry={nodes.building_8.geometry} material={materials.city_2} position={[2.05, -0.15, 19.1]} scale={[1.2, 1.2, 1.2]} />
+        <mesh castShadow geometry={nodes.building_9.geometry} material={materials.city_2} position={[-2.5, 0.02, 9]} scale={[1.5, 1.6, 1.5]} />
         <mesh castShadow geometry={nodes.building_10.geometry} material={materials.city_2} position={[-2.5, -0.06, 10.8]} scale={[1.2, 1.2, 1.2]} />
         <mesh castShadow geometry={nodes.building_11.geometry} material={materials.city_2} position={[-3.4, -0.14, 13.4]} scale={[1.2, 1.2, 1.2]} />
         <mesh castShadow geometry={nodes.building_12.geometry} material={materials.city_2} position={[-3.4, -0.12, 14.4]} scale={[1.2, 1.2, 1.2]} />
-        <mesh castShadow geometry={nodes.building_13.geometry} material={materials.city_2} position={[-2.1, -0.35, 19.2]} scale={[1.5, 1.5, 1.5]} />
+        <mesh castShadow geometry={nodes.building_13.geometry} material={materials.city_2} position={[-2.1, -0.37, 19.2]} scale={[1.5, 1.5, 1.5]} />
         <mesh castShadow geometry={nodes.building_14.geometry} material={materials.city_2} position={[-3.1, -0.1, 20.3]} scale={[1.2, 1.2, 1.2]} />
         {/* <mesh geometry={nodes.building_1_1.geometry} material={materials.city_3} position={[2.4, -0.5, 7.4]} scale={[2.7, 5, 3]} /> */}
         {/* </Physics> */}

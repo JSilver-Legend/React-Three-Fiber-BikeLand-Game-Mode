@@ -114,6 +114,19 @@ const HotSpots = ({ state, cameraMove }) => {
                 <img src="assets/img/bar.svg" alt="bar" width={60} height={60} />
               </div>
             </Html>
+            <Html
+              position={[-9, 0.4, 19]}
+            >
+              <div className="button" onClick={() => {
+                setContent(contents[3].content);
+                setSelectHotspots('hill');
+                setModalPosition([-10, 0.2, 15]);
+                setShowModal(true);
+                cameraMove(-9, 0.4, 19, 8);
+              }}>
+                <img src="assets/img/hill.svg" alt="bar" width={60} height={60} />
+              </div>
+            </Html>
           </> :
           <Html
             position={modalPosition}
@@ -175,7 +188,13 @@ const HotSpots = ({ state, cameraMove }) => {
                   selectHotspots === 'hill' ?
                     <img src="assets/img/hill.svg" alt="hill" width={90} height={90} />
                     :
-                    <div className="button">
+                    <div className="button" onClick={() => {
+                      setContent(contents[3].content);
+                      setModalPosition([-10, 0.2, 15]);
+                      setSelectHotspots('hill');
+                      setShowModal(true);
+                      cameraMove(-9, 0.4, 19, 11);
+                    }}>
                       <img src="assets/img/hill.svg" alt="hill" width={70} height={70} />
                     </div>
                 }
