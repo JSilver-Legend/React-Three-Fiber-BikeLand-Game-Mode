@@ -18,62 +18,9 @@ const contents = [
   }
 ]
 
-const positions = [
-  { // shop
-    "target": {
-      "x": -0.6,
-      "y": 0.2,
-      "z": 1
-    },
-    "modal": {
-      "x": 2,
-      "y": 0.4,
-      "z": 10.9
-    },
-    "angle": -3 * Math.PI / 8
-  },
-  { // gateway
-    "target": {
-      "x": -2.8,
-      "y": 0.7,
-      "z": 0
-    },
-    "modal": {
-      "x": 0,
-      "y": 1,
-      "z": 5
-    },
-    "angle": -3 * Math.PI / 8
-  },
-  { // bar
-    "target": {
-      "x": 1,
-      "y": 0.4,
-      "z": -0.2
-    },
-    "modal": {
-      "x": -2.5,
-      "y": 0.4,
-      "z": 10.4
-    },
-    "angle": -3 * Math.PI / 8
-  },
-  { // hill
-    "target": {
-      "x": 2,
-      "y": 0.8,
-      "z": 2.8
-    },
-    "modal": {
-      "x": 2,
-      "y": 0.8,
-      "z": 2
-    },
-    "angle": Math.PI / 8
-  }
-];
+const HotSpots = ({ state, cameraMove }) => {
 
-const HotSpots = ({ state }) => {
+  // console.log('hotspots camera->', cameraRef);
 
   const [content, setContent] = useState('');
   const [modalPosition, setModalPosition] = useState([0, 0, 0]);
@@ -82,7 +29,7 @@ const HotSpots = ({ state }) => {
 
   useEffect(() => {
     setShowModal(false);
-  }, [state])
+  }, [state]);
 
   return (
     <group>
@@ -94,8 +41,10 @@ const HotSpots = ({ state }) => {
             >
               <div className="button" onClick={() => {
                 setContent(contents[0].content);
-                setModalPosition([positions[0].modal.x, positions[0].modal.y, positions[0].modal.z]);
+                setModalPosition([0, -0.2, 6.9]);
+                setSelectHotspots('shop');
                 setShowModal(true);
+                cameraMove(-3, -6, 6, 18);
               }} >
                 <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
               </div>
@@ -105,8 +54,10 @@ const HotSpots = ({ state }) => {
             >
               <div className="button" onClick={() => {
                 setContent(contents[0].content);
-                setModalPosition([positions[0].modal.x, positions[0].modal.y, positions[0].modal.z]);
+                setModalPosition([-0.4, -1.2, 10]);
+                setSelectHotspots('shop');
                 setShowModal(true);
+                cameraMove(-3, -6, 10, 18);
               }}>
                 <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
               </div>
@@ -116,8 +67,10 @@ const HotSpots = ({ state }) => {
             >
               <div className="button" onClick={() => {
                 setContent(contents[0].content);
-                setModalPosition([positions[0].modal.x, positions[0].modal.y, positions[0].modal.z]);
+                setModalPosition([-0.8, -2.2, 13]);
+                setSelectHotspots('shop');
                 setShowModal(true);
+                cameraMove(-3, -6, 14, 18);
               }}>
                 <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
               </div>
@@ -127,8 +80,10 @@ const HotSpots = ({ state }) => {
             >
               <div className="button" onClick={() => {
                 setContent(contents[0].content);
-                setModalPosition([positions[0].modal.x, positions[0].modal.y, positions[0].modal.z]);
+                setModalPosition([-2.5, 1.5, 13]);
+                setSelectHotspots('shop');
                 setShowModal(true);
+                cameraMove(-3, 0, 14, 8);
               }}>
                 <img src="assets/img/shop.svg" alt="shop" width={60} height={60} />
               </div>
@@ -138,8 +93,10 @@ const HotSpots = ({ state }) => {
             >
               <div className="button" onClick={() => {
                 setContent(contents[1].content);
-                setModalPosition([positions[1].modal.x, positions[1].modal.y, positions[1].modal.z]);
+                setModalPosition([-22, -9, -4]);
+                setSelectHotspots('gateway');
                 setShowModal(true);
+                cameraMove(0, 0, 6, 8);
               }}>
                 <img src="assets/img/gateway.svg" alt="gateway" width={60} height={60} />
               </div>
@@ -149,8 +106,10 @@ const HotSpots = ({ state }) => {
             >
               <div className="button" onClick={() => {
                 setContent(contents[2].content);
-                setModalPosition([positions[2].modal.x, positions[2].modal.y, positions[2].modal.z]);
+                setSelectHotspots('bar');
+                setModalPosition([-2.5, 1, 7]);
                 setShowModal(true);
+                cameraMove(0, 2, 10, 8);
               }}>
                 <img src="assets/img/bar.svg" alt="bar" width={60} height={60} />
               </div>
@@ -174,7 +133,13 @@ const HotSpots = ({ state }) => {
                   selectHotspots === 'gateway' ?
                     <img src="assets/img/gateway.svg" alt="hill" width={90} height={90} />
                     :
-                    <div className="button">
+                    <div className="button" onClick={() => {
+                      setContent(contents[1].content);
+                      setModalPosition([-22, -9, -4]);
+                      setSelectHotspots('gateway');
+                      setShowModal(true);
+                      cameraMove(0, 0, 6, 8);
+                    }}>
                       <img src="assets/img/gateway.svg" alt="hill" width={70} height={70} />
                     </div>
                 }
@@ -182,7 +147,13 @@ const HotSpots = ({ state }) => {
                   selectHotspots === 'bar' ?
                     <img src="assets/img/bar.svg" alt="hill" width={90} height={90} />
                     :
-                    <div className="button">
+                    <div className="button" onClick={() => {
+                      setContent(contents[2].content);
+                      setSelectHotspots('bar');
+                      setModalPosition([-2.5, 1, 7]);
+                      setShowModal(true);
+                      cameraMove(0, 2, 10, 8);
+                    }}>
                       <img src="assets/img/bar.svg" alt="hill" width={70} height={70} />
                     </div>
                 }
@@ -190,7 +161,13 @@ const HotSpots = ({ state }) => {
                   selectHotspots === 'shop' ?
                     <img src="assets/img/shop.svg" alt="hill" width={90} height={90} />
                     :
-                    <div className="button">
+                    <div className="button" onClick={() => {
+                      setContent(contents[0].content);
+                      setModalPosition([0, -0.2, 6.9]);
+                      setSelectHotspots('shop');
+                      setShowModal(true);
+                      cameraMove(-3, -6, 6, 18);
+                    }}>
                       <img src="assets/img/shop.svg" alt="hill" width={70} height={70} />
                     </div>
                 }

@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { useRaycastVehicle } from '@react-three/cannon';
 import { useControls } from '../../utils/useControls';
 import Beetle from '../beetle';
 import Wheel from '../wheel';
 
-const Bike = ({ radius = 0.83, width = 1.2, height = -0.04, front = 1.3, back = -1.7, steer = 0.75, force = 2000, maxBrake = 1e5, ...props }) => {
+const Bike = ({ followMode, radius = 0.83, width = 1.2, height = -0.04, front = 1.3, back = -1.7, steer = 0.75, force = 2000, maxBrake = 1e5, ...props }) => {
 
   const chassis = useRef();
   const wheel1 = useRef();
@@ -13,6 +13,12 @@ const Bike = ({ radius = 0.83, width = 1.2, height = -0.04, front = 1.3, back = 
   const wheel3 = useRef();
   const wheel4 = useRef();
   const controls = useControls();
+
+  const cameraProps = useRef({
+    position: [0, 0, 0],
+    quaternion: [0, 0, 0],
+    rotation: [0, 0, 0]
+  })
 
   const wheelInfo = {
     radius,
@@ -31,9 +37,9 @@ const Bike = ({ radius = 0.83, width = 1.2, height = -0.04, front = 1.3, back = 
   };
 
   const wheelInfo1 = { ...wheelInfo, isFrontWheel: true, chassisConnectionPointLocal: [0, height, front] }
-  const wheelInfo2 = { ...wheelInfo, isFrontWheel: true, chassisConnectionPointLocal: [-width / 2, height, -1] }
+  const wheelInfo2 = { ...wheelInfo, isFrontWheel: true, chassisConnectionPointLocal: [-width / 2, height, -0.1] }
   const wheelInfo3 = { ...wheelInfo, isFrontWheel: false, chassisConnectionPointLocal: [0, height, back] }
-  const wheelInfo4 = { ...wheelInfo, isFrontWheel: false, chassisConnectionPointLocal: [width / 2, height, -1] }
+  const wheelInfo4 = { ...wheelInfo, isFrontWheel: false, chassisConnectionPointLocal: [width / 2, height, -0.1] }
 
   const [vehicle, api] = useRaycastVehicle(() => ({
     chassisBody: chassis,
@@ -44,7 +50,15 @@ const Bike = ({ radius = 0.83, width = 1.2, height = -0.04, front = 1.3, back = 
     indexUpAxis: 1
   }));
 
-  useFrame((state) => {
+  useEffect(() => {
+    if (followMode) {
+      chassis.current.api.position.subscribe((v) => (cameraProps.current.position = v))
+      chassis.current.api.quaternion.subscribe((v) => (cameraProps.current.quaternion = v))
+      chassis.current.api.rotation.subscribe((v) => (cameraProps.current.rotation = v))
+    }
+  }, [followMode]);
+
+  useFrame(({ camera }) => {
     // console.log('api-->', api);
     // state.camera.position.set(15, 15, 30);
     // console.log('bike position-->', chassis.current.api.position);
@@ -67,15 +81,39 @@ const Bike = ({ radius = 0.83, width = 1.2, height = -0.04, front = 1.3, back = 
       chassis.current.api.angularVelocity.set(0, 0.5, 0)
       chassis.current.api.rotation.set(0, -Math.PI / 4, 0)
     }
+
+    if (followMode) {
+      const step = 0.1
+      camera.position.lerp(
+        camera.position.set(cameraProps.current.position[0] + Math.PI * 8, cameraProps.current.position[1] + 20, cameraProps.current.position[2] + 12),
+        step
+      );
+      camera.quaternion.set(...cameraProps.current.quaternion);
+      // camera.rotation.set(...cameraProps.current.rotation);
+
+      // Apply offset
+      // const rotateX = THREE.MathUtils.lerp(0, Math.PI / 6, step);
+      // const rotateY = THREE.MathUtils.lerp(0, Math.PI, step);
+      // camera.rotation.set(Math.PI / 12, Math.PI, 0);
+
+      // camera.translateY(0);
+
+      camera.lookAt(...cameraProps.current.position);
+
+      camera.translateZ(-27);
+      camera.rotateY(-0.15);
+      // camera.zoom = Math.abs(Math.sin(clock.getElapsedTime())) * 0.03 + 1;
+      camera.updateProjectionMatrix();
+    }
   });
 
   return (
-    <group name='bike' ref={vehicle} position={[0, -0.4, 0]} scale={[0.09, 0.09, 0.09]}>
+    <group name='bike' ref={vehicle} position={[0, 0, 0]}  >
       <Beetle ref={chassis} handleRef={wheel1} rotation={props.rotation} position={props.position} angularVelocity={props.angularVelocity} />
-      <Wheel ref={wheel1} radius={0.1} scale={1} />
-      <Wheel ref={wheel2} radius={0.1} scale={1} isVislble={false} />
-      <Wheel ref={wheel3} radius={0.1} scale={1} />
-      <Wheel ref={wheel4} radius={0.1} scale={1} isVislble={false} />
+      <Wheel ref={wheel1} radius={0.1} />
+      <Wheel ref={wheel2} radius={0.1} isVislble={true} />
+      <Wheel ref={wheel3} radius={0.1} />
+      <Wheel ref={wheel4} radius={0.1} isVislble={true} />
     </group>
   )
 }
