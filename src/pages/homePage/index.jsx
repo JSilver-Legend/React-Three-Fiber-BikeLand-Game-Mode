@@ -93,8 +93,32 @@ const HomePage = () => {
         <Debug scale={1.1} color="#ff0000">
           <Plane position={[0, -0.4, 0]} rotation={[-Math.PI / 2, 0, 0]} userData={{ id: 'floor' }} />
           {/* <Bike ref={bike} followMode={isFollowMode} position={[0, 1, 0]} rotation={[0, 0, 0]} angularVelocity={[0, 0.5, 0]} wheelRadius={0.1} /> */}
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
+          <ColliderBox args={new THREE.Vector3(0.3, 1, 0.3)} pos={new THREE.Vector3(-1, 0, 5)} />
+          <ColliderBox args={new THREE.Vector3(0.3, 1, 0.3)} pos={new THREE.Vector3(1, 0, 5)} />
+
+          <ColliderBox args={new THREE.Vector3(1.1, 1, 1.6)} pos={new THREE.Vector3(4.8, 0, 8.7)} />
+          <ColliderBox args={new THREE.Vector3(1.4, 1, 0.75)} pos={new THREE.Vector3(2.5, 0, 7.35)} />
+          <ColliderBox args={new THREE.Vector3(1, 1, 0.8)} pos={new THREE.Vector3(1.9, 0, 9.8)} />
+          <ColliderBox args={new THREE.Vector3(1.2, 1, 1.1)} pos={new THREE.Vector3(2, 0, 10.9)} />
+          <ColliderBox args={new THREE.Vector3(1.2, 1, 0.9)} pos={new THREE.Vector3(2, 0, 14.2)} />
+          <ColliderBox args={new THREE.Vector3(0.7, 1, 2.75)} pos={new THREE.Vector3(2.3, 0, 16.2)} />
+          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(4.8, 0, 16.8)} />
+          <ColliderBox args={new THREE.Vector3(1.4, 1, 1.1)} pos={new THREE.Vector3(2.1, 0, 19.1)} />
+          <ColliderBox args={new THREE.Vector3(1.9, 1, 1.2)} pos={new THREE.Vector3(4.35, 0, 11)} />
+          <ColliderBox args={new THREE.Vector3(2.6, 1, 1.9)} pos={new THREE.Vector3(7, 0, 11)} />
+          <ColliderBox args={new THREE.Vector3(2.6, 1, 1.9)} pos={new THREE.Vector3(7, 0, 14.3)} />
+
+          <ColliderBox args={new THREE.Vector3(1.3, 1, 2.8)} pos={new THREE.Vector3(-2.5, 0, 9.8)} />
+          <ColliderBox args={new THREE.Vector3(1.2, 1, 2.9)} pos={new THREE.Vector3(-3.35, 0, 13.4)} />
+          <ColliderBox args={new THREE.Vector3(1, 1, 1.1)} pos={new THREE.Vector3(-3.5, 0, 17.9)} />
+          <ColliderBox args={new THREE.Vector3(0.6, 1, 1.2)} pos={new THREE.Vector3(-2.7, 0, 18.3)} />
+          <ColliderBox args={new THREE.Vector3(0.8, 1, 0.8)} pos={new THREE.Vector3(-2.4, 0, 17.2)} />
+          <ColliderBox args={new THREE.Vector3(2, 1, 0.8)} pos={new THREE.Vector3(-3.1, 0, 20.5)} />
+
+          <ColliderBox args={new THREE.Vector3(10, 1, 10)} pos={new THREE.Vector3(-12.5, 0, 22.5)} />
+          <ColliderBox args={new THREE.Vector3(7, 1, 5.2)} pos={new THREE.Vector3(-12.5, 0, 12.6)} />
+
+          {/* <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
 
           <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
           <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
@@ -107,7 +131,7 @@ const HomePage = () => {
           <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
           <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
           <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
+          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} /> */}
         </Debug>
         {/* <Market1 position={[10, 0.8, 10]} /> */}
         {/* <ColliderBox position={[0, 0, 5]} /> */}
@@ -130,17 +154,17 @@ const HomePage = () => {
         <mesh castShadow geometry={nodes.mountain_2.geometry} material={materials.city_2} position={[-19, 0.9, 12]} scale={[3, 3, 3]} />
         <mesh castShadow geometry={nodes.mountain_3.geometry} material={materials.city_2} position={[-15, 0.9, 19.5]} scale={[3, 3, 3]} />
         <mesh castShadow geometry={nodes.mountain_3.geometry} material={materials.city_2} position={[-18, 0.9, 19.5]} scale={[3, 3, 3]} />
-        <mesh castShadow geometry={nodes.logo.geometry} material={materials.city_3} position={[0, 0.25, 5]} scale={[4, 3, 2.5]} />
+        <mesh castShadow geometry={nodes.logo.geometry} material={materials.city_3} position={[0, 0.25, 5]} scale={[0.2, 0.15, 0.2]} />
         <mesh castShadow geometry={nodes.gateway.geometry} material={materials.city_2} position={[0, 0.36, 5]} scale={[2, 1.4, 2]} />
         <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[-3.2, 0.1, 12.3]} scale={[3, 2, 3]} />
-        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[-2.4, 0.3, 17.2]} scale={[2.8, 3, 2.8]} />
-        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[3.6, 0.3, 11.2]} scale={[2, 3, 2]} />
-        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[4.7, 0.3, 16.9]} scale={[3, 3, 3]} />
-        <mesh castShadow geometry={nodes.tree_2.geometry} material={materials.city_2} rotation={[0, Math.PI / 2, 0]} position={[2.4, 0.3, 17.6]} scale={[3, 3, 3]} />
-        <mesh castShadow geometry={nodes.tree_3.geometry} material={materials.city_2} rotation={[0, Math.PI / 2, 0]} position={[7, 0.3, 14.5]} scale={[3, 3, 3]} />
-        <mesh castShadow geometry={nodes.tree_3.geometry} material={materials.city_2} rotation={[0, -Math.PI / 2, 0]} position={[7, 0.3, 11.2]} scale={[3, 3, 3]} />
-        <mesh castShadow geometry={nodes.tree_3.geometry} material={materials.city_2} rotation={[0, -Math.PI / 2, 0]} position={[-12.5, 0.3, 14.8]} scale={[3, 3, 3]} />
-        <mesh castShadow geometry={nodes.tree_3.geometry} material={materials.city_2} rotation={[0, 0, 0]} position={[-10, 0.5, 12]} scale={[6, 4, 5]} />
+        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[-2.4, 0.25, 17.2]} scale={[2.8, 3, 2.8]} />
+        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[3.6, 0.25, 11.2]} scale={[2, 3, 2]} />
+        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[4.7, 0.25, 16.8]} scale={[3, 3, 3]} />
+        <mesh castShadow geometry={nodes.tree_2.geometry} material={materials.city_2} rotation={[0, Math.PI / 2, 0]} position={[2.4, 0.25, 17.6]} scale={[3, 3, 3]} />
+        <mesh castShadow geometry={nodes.tree_3.geometry} material={materials.city_2} rotation={[0, Math.PI / 2, 0]} position={[7, 0.25, 14.5]} scale={[3, 3, 3]} />
+        <mesh castShadow geometry={nodes.tree_3.geometry} material={materials.city_2} rotation={[0, -Math.PI / 2, 0]} position={[7, 0.25, 11.2]} scale={[3, 3, 3]} />
+        <mesh castShadow geometry={nodes.tree_3.geometry} material={materials.city_2} rotation={[0, -Math.PI / 2, 0]} position={[-12.5, 0.25, 14.8]} scale={[3, 3, 3]} />
+        <mesh castShadow geometry={nodes.tree_3.geometry} material={materials.city_2} rotation={[0, 0, 0]} position={[-10, 0.4, 12]} scale={[6, 4, 5]} />
         <mesh castShadow geometry={nodes.building_1.geometry} material={materials.city_2} position={[2.5, -0.33, 7.4]} scale={[1.2, 1.2, 1.2]} />
         <mesh castShadow geometry={nodes.building_2.geometry} material={materials.city_2} position={[4.7, -0.130, 11]} scale={[1.2, 1.2, 1.2]} />
         <mesh castShadow geometry={nodes.building_3.geometry} material={materials.city_2} position={[4.8, -0.130, 8.9]} scale={[1.2, 1.2, 1.2]} />
