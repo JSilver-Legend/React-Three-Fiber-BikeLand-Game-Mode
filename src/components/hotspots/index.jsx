@@ -132,6 +132,12 @@ const HotSpots = ({ state, cameraMove }) => {
             position={modalPosition}
           >
             <div className="content" >
+              <div className='close-button' onClick={() => {
+                setShowModal(false);
+                cameraMove(0, 0, 14, 18);
+              }}>
+                <img src='assets/img/close.png' alt='close' width={40} height={40} />
+              </div>
               <div className="sub-title">
                 BikeLand Box
               </div>

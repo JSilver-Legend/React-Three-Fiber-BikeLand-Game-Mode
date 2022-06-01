@@ -67,8 +67,8 @@ const HomePage = () => {
 
   const gateway = useRef();
 
-  const ColliderBox = ({ pos, args }) => {
-    const [ref] = useBox(() => ({ type: 'Static', args: [args.x, args.y, args.z], position: [pos.x, pos.y, pos.z] }));
+  const ColliderBox = ({ pos, args, rot }) => {
+    const [ref] = useBox(() => ({ type: 'Static', args: [args.x, args.y, args.z], position: [pos.x, pos.y, pos.z], rotation: [rot.x, rot.y, rot.z] }));
     return (
       <mesh visible={false} ref={ref} receiveShadow castShadow geometry={BoxBufferGeometry.geometry} />
     );
@@ -93,50 +93,36 @@ const HomePage = () => {
         <Debug scale={1.1} color="#ff0000">
           <Plane position={[0, -0.4, 0]} rotation={[-Math.PI / 2, 0, 0]} userData={{ id: 'floor' }} />
           {/* <Bike ref={bike} followMode={isFollowMode} position={[0, 1, 0]} rotation={[0, 0, 0]} angularVelocity={[0, 0.5, 0]} wheelRadius={0.1} /> */}
-          <ColliderBox args={new THREE.Vector3(0.3, 1, 0.3)} pos={new THREE.Vector3(-1, 0, 5)} />
-          <ColliderBox args={new THREE.Vector3(0.3, 1, 0.3)} pos={new THREE.Vector3(1, 0, 5)} />
+          <ColliderBox args={new THREE.Vector3(0.3, 1, 0.3)} pos={new THREE.Vector3(-1, 0, 5)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(0.3, 1, 0.3)} pos={new THREE.Vector3(1, 0, 5)} rot={new THREE.Vector3(0, 0, 0)} />
 
-          <ColliderBox args={new THREE.Vector3(1.1, 1, 1.6)} pos={new THREE.Vector3(4.8, 0, 8.7)} />
-          <ColliderBox args={new THREE.Vector3(1.4, 1, 0.75)} pos={new THREE.Vector3(2.5, 0, 7.35)} />
-          <ColliderBox args={new THREE.Vector3(1, 1, 0.8)} pos={new THREE.Vector3(1.9, 0, 9.8)} />
-          <ColliderBox args={new THREE.Vector3(1.2, 1, 1.1)} pos={new THREE.Vector3(2, 0, 10.9)} />
-          <ColliderBox args={new THREE.Vector3(1.2, 1, 0.9)} pos={new THREE.Vector3(2, 0, 14.2)} />
-          <ColliderBox args={new THREE.Vector3(0.7, 1, 2.75)} pos={new THREE.Vector3(2.3, 0, 16.2)} />
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(4.8, 0, 16.8)} />
-          <ColliderBox args={new THREE.Vector3(1.4, 1, 1.1)} pos={new THREE.Vector3(2.1, 0, 19.1)} />
-          <ColliderBox args={new THREE.Vector3(1.9, 1, 1.2)} pos={new THREE.Vector3(4.35, 0, 11)} />
-          <ColliderBox args={new THREE.Vector3(2.6, 1, 1.9)} pos={new THREE.Vector3(7, 0, 11)} />
-          <ColliderBox args={new THREE.Vector3(2.6, 1, 1.9)} pos={new THREE.Vector3(7, 0, 14.3)} />
+          <ColliderBox args={new THREE.Vector3(1.1, 1, 1.6)} pos={new THREE.Vector3(4.8, 0, 8.7)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(1.4, 1, 0.75)} pos={new THREE.Vector3(2.5, 0, 7.35)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(1, 1, 0.8)} pos={new THREE.Vector3(1.9, 0, 9.8)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(1.2, 1, 1.1)} pos={new THREE.Vector3(2, 0, 10.9)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(1.2, 1, 0.9)} pos={new THREE.Vector3(2, 0, 14.2)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(0.7, 1, 2.75)} pos={new THREE.Vector3(2.3, 0, 16.2)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(4.8, 0, 16.8)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(1.4, 1, 1.1)} pos={new THREE.Vector3(2.1, 0, 19.1)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(1.9, 1, 1.2)} pos={new THREE.Vector3(4.35, 0, 11)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(2.6, 1, 1.9)} pos={new THREE.Vector3(7, 0, 11)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(2.6, 1, 1.9)} pos={new THREE.Vector3(7, 0, 14.3)} rot={new THREE.Vector3(0, 0, 0)} />
 
-          <ColliderBox args={new THREE.Vector3(1.3, 1, 2.8)} pos={new THREE.Vector3(-2.5, 0, 9.8)} />
-          <ColliderBox args={new THREE.Vector3(1.2, 1, 2.9)} pos={new THREE.Vector3(-3.35, 0, 13.4)} />
-          <ColliderBox args={new THREE.Vector3(1, 1, 1.1)} pos={new THREE.Vector3(-3.5, 0, 17.9)} />
-          <ColliderBox args={new THREE.Vector3(0.6, 1, 1.2)} pos={new THREE.Vector3(-2.7, 0, 18.3)} />
-          <ColliderBox args={new THREE.Vector3(0.8, 1, 0.8)} pos={new THREE.Vector3(-2.4, 0, 17.2)} />
-          <ColliderBox args={new THREE.Vector3(2, 1, 0.8)} pos={new THREE.Vector3(-3.1, 0, 20.5)} />
+          <ColliderBox args={new THREE.Vector3(1.3, 1, 2.8)} pos={new THREE.Vector3(-2.5, 0, 9.8)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(1.2, 1, 2.9)} pos={new THREE.Vector3(-3.35, 0, 13.4)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(1, 1, 1.1)} pos={new THREE.Vector3(-3.5, 0, 17.9)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(0.6, 1, 1.2)} pos={new THREE.Vector3(-2.7, 0, 18.3)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(0.8, 1, 0.8)} pos={new THREE.Vector3(-2.4, 0, 17.2)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(2, 1, 0.8)} pos={new THREE.Vector3(-3.1, 0, 20.5)} rot={new THREE.Vector3(0, 0, 0)} />
 
-          <ColliderBox args={new THREE.Vector3(10, 1, 10)} pos={new THREE.Vector3(-12.5, 0, 22.5)} />
-          <ColliderBox args={new THREE.Vector3(7, 1, 5.2)} pos={new THREE.Vector3(-12.5, 0, 12.6)} />
-
-          {/* <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
-
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
-
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
-
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} />
-          <ColliderBox args={new THREE.Vector3(1, 1, 1)} pos={new THREE.Vector3(0, 0, 10)} /> */}
+          <ColliderBox args={new THREE.Vector3(10, 1, 10)} pos={new THREE.Vector3(-12.5, 0, 22.5)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(7, 1, 5)} pos={new THREE.Vector3(-12, 0, 0)} rot={new THREE.Vector3(0, Math.PI / 4, 0)} />
+          <ColliderBox args={new THREE.Vector3(13, 1, 1)} pos={new THREE.Vector3(0, 0, 23)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(1, 1, 22)} pos={new THREE.Vector3(7, 0, 11)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(20, 1, 1)} pos={new THREE.Vector3(-2, 0, -1)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(7, 1, 5.2)} pos={new THREE.Vector3(-12.5, 0, 12.6)} rot={new THREE.Vector3(0, 0, 0)} />
+          <ColliderBox args={new THREE.Vector3(7, 1, 20)} pos={new THREE.Vector3(-16, 0, 9)} rot={new THREE.Vector3(0, 0, 0)} />
         </Debug>
-        {/* <Market1 position={[10, 0.8, 10]} /> */}
-        {/* <ColliderBox position={[0, 0, 5]} /> */}
-        {/* <ColliderBox position={[0, 0, 10]} /> */}
-        {/* <ColliderBox geometry={nodes.building_1.geometry} /> */}
       </Physics>
       <group scale={[5, 9, 13]} position={[-1.5, -0.4, 16]} >
         <mesh position={[-0.14, 0, 0.07]} receiveShadow geometry={nodes.ground.geometry} material={materials.city_1} />
@@ -146,7 +132,6 @@ const HomePage = () => {
       </group>
       <group scale={[1, 1.5, 1]}>
         {/* <Physics> */}
-        {/* <Gateway position={[0, 0.36, 5]} scale={[2, 1.4, 2]} /> */}
         <mesh castShadow geometry={nodes.road.geometry} material={materials.city_4} rotation={[0, 0, 0]} position={[-17, -0.33, 15.930]} scale={[10, 3, 5.1]} />
         <mesh castShadow geometry={nodes.mountain_1.geometry} material={materials.city_2} position={[-15, 0.3, 7]} scale={[3, 3, 3]} />
         <mesh castShadow geometry={nodes.mountain_1.geometry} material={materials.city_2} position={[-9, 0.12, 19]} scale={[2, 2, 2]} />
@@ -157,7 +142,7 @@ const HomePage = () => {
         <mesh castShadow geometry={nodes.logo.geometry} material={materials.city_3} position={[0, 0.25, 5]} scale={[0.2, 0.15, 0.2]} />
         <mesh castShadow geometry={nodes.gateway.geometry} material={materials.city_2} position={[0, 0.36, 5]} scale={[2, 1.4, 2]} />
         <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[-3.2, 0.1, 12.3]} scale={[3, 2, 3]} />
-        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[-2.4, 0.25, 17.2]} scale={[2.8, 3, 2.8]} />
+        <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[-2.4, 0.25, 17.2]} scale={[2.3, 3, 2]} />
         <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[3.6, 0.25, 11.2]} scale={[2, 3, 2]} />
         <mesh castShadow geometry={nodes.tree_1.geometry} material={materials.city_2} position={[4.7, 0.25, 16.8]} scale={[3, 3, 3]} />
         <mesh castShadow geometry={nodes.tree_2.geometry} material={materials.city_2} rotation={[0, Math.PI / 2, 0]} position={[2.4, 0.25, 17.6]} scale={[3, 3, 3]} />
